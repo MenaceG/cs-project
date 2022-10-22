@@ -1,7 +1,8 @@
 import mysql.connector as sql, datetime as dt
 import datetime
+from Usr_Pswd import UsrNm, Pswd
 
-conn = sql.connect(host="localhost", user="root", passwd="ayush", database="gasmng")
+conn = sql.connect(host="localhost", user = UsrNm, passwd = Pswd, database="gasmng")
 if conn.is_connected():
     print("connected")
 mycursor = conn.cursor()

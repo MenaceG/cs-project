@@ -1,7 +1,8 @@
 import mysql.connector as sql, datetime as dt
 import datetime
+from Usr_Pswd import UsrNm, Pswd
 
-conn = sql.connect(host="localhost", user="root", passwd="ayush")
+conn = sql.connect(host="localhost", user = UsrNm, passwd = Pswd)
 mycursor = conn.cursor()
 mycursor.execute("CREATE DATABASE gasmng")
 
