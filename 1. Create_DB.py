@@ -1,19 +1,18 @@
 import mysql.connector as sql, datetime as dt
 import datetime
-from Usr_Pswd import UsrNm, Pswd
 
-conn = sql.connect(host="localhost", user = UsrNm, passwd = Pswd)
+conn = sql.connect(host="localhost", user="ayush" , passwd="ayush")
 mycursor = conn.cursor()
 mycursor.execute("CREATE DATABASE gasmng")
 
 if conn.is_connected():
     print(
-                "_______________________________________________________________________________"
-            )
+        "_______________________________________________________________________________"
+    )
     print("<<<<<<<<<<<<---------- Database Created ---------->>>>>>>>>>>>")
     print(
-                "_______________________________________________________________________________"
-            )
-   
+        "_______________________________________________________________________________"
+    )
+
 mycursor = conn.cursor()
 conn.commit()

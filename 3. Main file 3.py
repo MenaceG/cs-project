@@ -2,9 +2,9 @@ v_credit = 0
 
 import mysql.connector as sql, datetime as dt
 import datetime
-from Usr_Pswd import UsrNm, Pswd
 
-conn = sql.connect(host="localhost", user=UsrNm, passwd=Pswd, database="gasmng")
+
+conn = sql.connect(host="localhost", user="ayush" , passwd="ayush" , database="gasmng")
 
 
 if conn.is_connected():
@@ -134,9 +134,9 @@ if username == "ayush" and password == "1234":
                     upd_val,
                 )
 
-                cho =input(
-                        "If Transaction Is To Be Done Through The Credit Amount Enter Y: "
-                    )
+                cho = input(
+                    "If Transaction Is To Be Done Through The Credit Amount Enter Y: "
+                )
                 if cho == "Y":
                     remaining = v_credit - amount
 
@@ -163,17 +163,18 @@ if username == "ayush" and password == "1234":
 
                 print("Your Record Is Updated")
                 choo = input(
-                        "If Transaction Is To Be Done Through The Credit Amount Enter Y: "
-                    )
+                    "If Transaction Is To Be Done Through The Credit Amount Enter Y: "
+                )
 
                 if choo == "Y":
                     remain = v_credit - pay
                     remain_val = (remain, date, customer_name)
                     mycursor.execute(
-                        "update gasmng set v_credit = %s, v_date = %s where v_customer = %s", remain_val
+                        "update gasmng set v_credit = %s, v_date = %s where v_customer = %s",
+                        remain_val,
                     )
                     print("Your Record Is Updated")
-                    
+
                     print(
                         "                                                                                                                                                                                                 "
                     )
@@ -186,28 +187,31 @@ if username == "ayush" and password == "1234":
                 cngas = int(input("Enter The Amount Of CNG GAS Bought: "))
                 total = 80 * lpgas + 75 * cngas
                 print("The Amount To Be Is: ", total)
-                
+
                 total_val = (lpgas, cngas, total, customer_name)
                 mycursor.execute(
-                    "update gasmng set v_lpg = %s, v_cng = %s, v_amtobe_paid = %s where v_customer = %s", total_val
+                    "update gasmng set v_lpg = %s, v_cng = %s, v_amtobe_paid = %s where v_customer = %s",
+                    total_val,
                 )
                 print("Your Record Is Updated")
 
                 chio = input(
-                        "If Transaction Is To Be Done Through The Credit Amount, Enter Y: "
-                    )
-
+                    "If Transaction Is To Be Done Through The Credit Amount, Enter Y: "
+                )
 
                 if chio == "Y":
                     remaind = v_credit - total
 
                     remnd_val = (remaind, date, customer_name)
                     mycursor.execute(
-                        "update gasmng set v_credit = %s, v_date = %s where v_customer = %s",remnd_val
+                        "update gasmng set v_credit = %s, v_date = %s where v_customer = %s",
+                        remnd_val,
                     )
             else:
                 print("<<<<<<<<<<.............INVALID INPUT..........>>>>>>>>>>>")
-                print("<<<<<<<...........Re-enter the suitable input  ........>>>>>>>>>>>")
+                print(
+                    "<<<<<<<...........Re-enter the suitable input  ........>>>>>>>>>>>"
+                )
                 print(
                     "________________________________________________________________________________________________________________________"
                 )
@@ -245,12 +249,13 @@ if username == "ayush" and password == "1234":
         elif choice == 5:
             customer_name = input("ENTER YOUR NAME: ")
             mycursor.execute(
-                "select  v_credit, v_debit, v_accno, v_add from gasmng where v_customer = '%s' " %(customer_name)
+                "select  v_credit, v_debit, v_accno, v_add from gasmng where v_customer = '%s' "
+                % (customer_name)
             )
             record = mycursor.fetchall()
             for x in record:
                 print(x)
-            print(" Continue Your Work") 
+            print(" Continue Your Work")
             print(
                 "                                                                                                                                                                                                 "
             )
@@ -272,10 +277,10 @@ if username == "ayush" and password == "1234":
             v_debit = input("Enter Your Debit Card Number: ")
             v_credit = int(input("Enter Your Credit Amount: "))
 
-
             mycursor.execute(
-                "insert into gasmng (v_customer, v_accno, v_date, v_add, v_debit, v_credit) VALUES ('%s', '%s','%s','%s','%s',%s)" %(v_customer, v_accno, v_date, v_add, v_debit, v_credit)
-                )
+                "insert into gasmng (v_customer, v_accno, v_date, v_add, v_debit, v_credit) VALUES ('%s', '%s','%s','%s','%s',%s)"
+                % (v_customer, v_accno, v_date, v_add, v_debit, v_credit)
+            )
             print("Inserted")
             print(
                 "_______________________________________________________________________________"
