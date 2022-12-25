@@ -1,0 +1,6 @@
+1) Change user and passwd in "sql.connect" query of all files, to your local MYSQL user and passwd before running the program.
+
+2) Files are numbered and should be run accordingly, else program may face error.
+
+3) Default USERNAME to login to the software is "ayush"
+   Default PASSWORD to login to the software is "1234"
